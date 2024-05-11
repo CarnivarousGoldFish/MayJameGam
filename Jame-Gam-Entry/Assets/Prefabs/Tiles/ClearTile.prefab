@@ -8,6 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1746325363350997377, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746325363350997377, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746325363350997377, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1449915349
+      objectReference: {fileID: 0}
+    - target: {fileID: 3199049054593796675, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3199049054593796675, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1017399835
+      objectReference: {fileID: 0}
     - target: {fileID: 3319030905072446857, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
       propertyPath: m_Name
       value: ClearTile

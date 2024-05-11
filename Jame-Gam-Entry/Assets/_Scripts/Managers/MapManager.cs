@@ -17,11 +17,15 @@ public class MapManager : MonoBehaviour
     [SerializeField] private Transform _camera;
     [SerializeField] private PlayerMarker _playerPrefab;
 
+    private LeverManager _leverManager;
+
     public PlayerMarker PlayerMark { get; private set; }
 
     private void Start()
     {
+        _leverManager = GetComponent<LeverManager>();
         GenerateMapGrid();
+
     }
 
     private void GenerateMapGrid()
@@ -43,7 +47,9 @@ public class MapManager : MonoBehaviour
         }
 
         SpawnPlayerMarker();
-        _camera.transform.position = new Vector3((float)_mapWidth / 1.25f - 0.5f, (float)_mapHeight / 2f - 0.5f, -10f);
+        _leverManager.SetUp(_mapWidth * 1.5f, _mapHeight / 2f);
+
+        _camera.transform.position = new Vector3((float)_mapWidth / 1.125f - 0.5f, (float)_mapHeight / 2.25f - 0.5f, -10f);
     }
 
     private MapTile SetPlayerSpawn()

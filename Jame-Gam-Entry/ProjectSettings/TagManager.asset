@@ -43,3 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Interactables
+    uniqueID: 1449915349
+    locked: 0
+  - name: Highlights
+    uniqueID: 1017399835
+    locked: 0
+  - name: Markers
+    uniqueID: 3431835333
+    locked: 0
