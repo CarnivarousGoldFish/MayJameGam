@@ -7,7 +7,7 @@ public class SceneManagement : MonoBehaviour
 {
     public GameObject PauseCanvas;
     public void StartGame(){
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("GameScene");
     }
     
     public void QuitGame(){
