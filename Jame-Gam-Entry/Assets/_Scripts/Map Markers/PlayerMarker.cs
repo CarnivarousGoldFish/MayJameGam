@@ -11,6 +11,7 @@ public class PlayerMarker : BaseMarker
     private CameraShake _camShake;
 
     private int _destinationX, _destinationY;
+    private MapManager _manager;
 
     private float _lastMove;
 
@@ -20,6 +21,11 @@ public class PlayerMarker : BaseMarker
     {
         _manager = manager;
         _camShake = camShake;
+    }
+
+    public void Initialize(MapManager manager)
+    {
+        _manager = manager;
     }
 
     private void Update()
@@ -38,6 +44,8 @@ public class PlayerMarker : BaseMarker
                 _canMove = false;
             }
         }
+
+        Debug.Log(CurrentTile);
     }
 
     public void SetDestination(Vector3 destination)
@@ -121,5 +129,11 @@ public class PlayerMarker : BaseMarker
         {
             AudioManager.Instance.PlaySFX("Signal Ping");
         }
+        else if (collision.CompareTag("Goal Tile"))
+        {
+            CurrentTile = collision.GetComponent<MapTile>();
+            Debug.Log(CurrentTile._isGoal);
+        }
+         
     }
 }

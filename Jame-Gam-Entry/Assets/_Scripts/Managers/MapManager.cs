@@ -64,6 +64,8 @@ public class MapManager : MonoBehaviour
 
     private void HandleTileSpawn(MapTile tileType, int xPos, int yPos)
     {
+        Debug.Log(tileType);
+
         tileType.name = $"Tile {xPos} {yPos}";
         tileType.Initialize(this);
 
@@ -75,6 +77,12 @@ public class MapManager : MonoBehaviour
         return _tiles
             .Where(t => t.Key.x == Mathf.RoundToInt(_mapWidth / 2) && t.Key.y == _mapHeight - 1)
             .OrderBy(t => Random.value).First().Value;
+    }
+
+    public void SetPlayerTile()
+    {
+        MapTile newTile = _tiles.Where(t => t.Key.x == PlayerMark.transform.position.x && t.Key.y == PlayerMark.transform.position.y).First().Value;
+        PlayerMark.CurrentTile = newTile;
     }
 
     private void SpawnPlayerMarker()
