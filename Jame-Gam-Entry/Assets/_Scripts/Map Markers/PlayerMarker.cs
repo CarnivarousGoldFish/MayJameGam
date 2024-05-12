@@ -6,6 +6,7 @@ public class PlayerMarker : BaseMarker
 {
     private int _startX, _startY;
     private int _destinationX, _destinationY;
+    private MapManager _manager;
 
     [SerializeField] private float _moveTime = 1.75f;
     [SerializeField] private BoxCollider2D _collider;
@@ -15,6 +16,11 @@ public class PlayerMarker : BaseMarker
 
     private bool _moveForward;
     private bool _moveBackward;
+
+    public void Initialize(MapManager manager)
+    {
+        _manager = manager;
+    }
 
     private void Update()
     {
@@ -46,6 +52,8 @@ public class PlayerMarker : BaseMarker
                 _canMove = false;
             }
         }
+
+        Debug.Log(CurrentTile);
     }
 
     public void SetDestination(Vector3 destination)
@@ -129,6 +137,20 @@ public class PlayerMarker : BaseMarker
         }
 
         _collider.offset = newOffset;
+        _manager.SetPlayerTile();
+        CheckIfGoalTile();
+    }
+
+    private void CheckIfGoalTile()
+    {
+        if (CurrentTile.CompareTag("Goal Tile"))
+        {
+            Debug.Log("On a Goal Tile!");
+        }
+        else if (CurrentTile.CompareTag("Hazard Tile"))
+        {
+            Debug.Log("On a Hazard Tile!");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -136,11 +158,19 @@ public class PlayerMarker : BaseMarker
         if (collision.CompareTag("Hazard Tile"))
         {
             //Debug.Log("Hazard detected");
-            _canMove = false;
+            //_canMove = false;
         }
-        else
+        /*
+         else if (collision.CompareTag("Clear Tile"))
         {
-            Debug.Log("NO hazard detected");
+            CurrentTile = collision.GetComponent<MapTile>();
+            Debug.Log(CurrentTile._isGoal);
         }
+        else if (collision.CompareTag("Goal Tile"))
+        {
+            CurrentTile = collision.GetComponent<MapTile>();
+            Debug.Log(CurrentTile._isGoal);
+        }
+         */
     }
 }

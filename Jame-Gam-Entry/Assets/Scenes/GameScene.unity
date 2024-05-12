@@ -317,6 +317,31 @@ MonoBehaviour:
   _mapHeight: 9
   _clearTile: {fileID: 1834051495695690955, guid: 143e0528bd5abb64bb63d78cb5670bd1, type: 3}
   _hazardTile: {fileID: 1869473862359962578, guid: 2aad208b670734642a8ddeb5fe9ff145, type: 3}
+  _goalTile: {fileID: -2956117699274335187, guid: 178ffcec953529f42a8098fffb92e748, type: 3}
+  _hazardVectors:
+  - {x: 0, y: 0}
+  - {x: 0, y: 8}
+  - {x: 1, y: 2}
+  - {x: 1, y: 4}
+  - {x: 1, y: 6}
+  - {x: 2, y: 1}
+  - {x: 2, y: 6}
+  - {x: 3, y: 2}
+  - {x: 3, y: 3}
+  - {x: 3, y: 5}
+  - {x: 4, y: 2}
+  - {x: 4, y: 7}
+  - {x: 5, y: 0}
+  - {x: 5, y: 4}
+  - {x: 5, y: 5}
+  - {x: 5, y: 6}
+  - {x: 5, y: 7}
+  - {x: 6, y: 3}
+  - {x: 7, y: 1}
+  - {x: 7, y: 5}
+  - {x: 7, y: 8}
+  - {x: 8, y: 3}
+  - {x: 8, y: 7}
   _camera: {fileID: 519420032}
   _playerPrefab: {fileID: -1180770943106487417, guid: 6d22cec599a05cd4594121110d6839b0, type: 3}
 --- !u!4 &1954381783
