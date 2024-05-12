@@ -24,11 +24,11 @@ public class MapManager : MonoBehaviour
     private void Start()
     {
         _leverManager = GetComponent<LeverManager>();
-        GenerateMapGrid();
+        // GenerateMapGrid();
 
     }
 
-    private void GenerateMapGrid()
+    public void GenerateMapGrid()
     {
         _tiles = new Dictionary<Vector2, MapTile>();
 
