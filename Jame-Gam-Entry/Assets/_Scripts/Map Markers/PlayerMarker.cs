@@ -26,6 +26,7 @@ public class PlayerMarker : BaseMarker
     public void Initialize(MapManager manager)
     {
         _manager = manager;
+        _camShake = camShake;
     }
 
     private void Update()
@@ -44,8 +45,6 @@ public class PlayerMarker : BaseMarker
                 _canMove = false;
             }
         }
-
-        Debug.Log(CurrentTile);
     }
 
     public void SetDestination(Vector3 destination)
