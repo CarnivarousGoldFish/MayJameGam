@@ -16,7 +16,7 @@ public class SceneManagement : MonoBehaviour
         Time.timeScale = 1;
         PauseCanvas.SetActive(false);
         GameCanvas.SetActive(true);
-        SceneManager.LoadScene("SFXTest");
+        SceneManager.LoadScene("GameScene");
     }
     
     public void QuitGame(){
@@ -34,5 +34,10 @@ public class SceneManagement : MonoBehaviour
         isPaused = PauseCanvas.activeSelf ? false : true;
         GameCanvas.SetActive(PauseCanvas.activeSelf);
         PauseCanvas.SetActive(!PauseCanvas.activeSelf);
+    }
+
+    public void Reset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

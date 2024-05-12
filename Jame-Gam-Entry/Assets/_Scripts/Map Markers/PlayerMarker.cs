@@ -113,7 +113,7 @@ public class PlayerMarker : BaseMarker
         else if (CurrentTile.CompareTag("Hazard Tile"))
         {
             _canMove = false;
-
+            AudioManager.Instance.PlaySFX("Explode");
             // screen shake
             StartCoroutine(_camShake.ScreenShake(0.2f, 0.25f));
 

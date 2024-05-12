@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 1746325363350997377, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 592594f952f8d4640aa1a8e6cc34e790, type: 3}
+      objectReference: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1746325363350997377, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
       propertyPath: m_Color.b
       value: 0.53333336
@@ -25,12 +25,28 @@ PrefabInstance:
       value: 0.9374711
       objectReference: {fileID: 0}
     - target: {fileID: 2600551504652689011, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.w
+      value: 0.049999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600551504652689011, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 0.049999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600551504652689011, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.y
+      value: 0.049999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600551504652689011, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 0.049999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600551504652689011, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.0666667
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 2600551504652689011, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.0666667
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 3319030905072446857, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
       propertyPath: m_Name
@@ -118,5 +134,3 @@ MonoBehaviour:
   _sprite: {fileID: 4614982196333279854}
   _highlight: {fileID: 2742822012329748904}
   _crossMarker: {fileID: 6784254247081522286, guid: 109a52c3dae4ab247ad08b6485a6c94e, type: 3}
-  _isHazard: 0
-  _isGoal: 0

@@ -23,6 +23,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] private PlayerMarker _playerPrefab;
     [SerializeField] private CameraShake _camShake;
     [SerializeField] private GameObject _overlayCanvas;
+    [SerializeField] private Transform _tileParent;
 
     public PlayerMarker PlayerMark { get; private set; }
 
@@ -42,17 +43,17 @@ public class MapManager : MonoBehaviour
             {
                 if (_hazardVectors.Contains(new Vector2(y, x)))
                 {
-                    var hazardTile = Instantiate(_hazardTile, new Vector3(x, y), Quaternion.identity);
+                    var hazardTile = Instantiate(_hazardTile, new Vector3(x, y), Quaternion.identity, _tileParent);
                     HandleTileSpawn(hazardTile, x, y);
                 }
                 else if (x == 2 && y == 2)
                 {
-                    var goalTile = Instantiate(_goalTile, new Vector3(x, y), Quaternion.identity);
+                    var goalTile = Instantiate(_goalTile, new Vector3(x, y), Quaternion.identity, _tileParent);
                     HandleTileSpawn(goalTile, x, y);
                 }
                 else
                 {
-                    var clearTile = Instantiate(_clearTile, new Vector3(x, y), Quaternion.identity);
+                    var clearTile = Instantiate(_clearTile, new Vector3(x, y), Quaternion.identity, _tileParent);
                     HandleTileSpawn(clearTile, x, y);
                 }
             }
@@ -83,7 +84,7 @@ public class MapManager : MonoBehaviour
 
         PlayerMark = Instantiate(_playerPrefab);
         var spawnPoint = SetPlayerSpawn();
-
+        PlayerMark.transform.SetParent(_tileParent);
         spawnPoint.SetMarker(PlayerMark);
         PlayerMark.Initialize(this, _camShake);
     }
