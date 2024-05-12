@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Jame-Gam-Entry/Assets/Audio.meta
 guid: 4b0aa90d20d6106449ea1910f97016e2
+========
+guid: 9cd85827f11f26b4fabe53214e2c2fd1
+>>>>>>>> de4d9a2fe2b4b408a166adfdb9a1d44cf2a02c9c:Jame-Gam-Entry/Assets/Resources/Scripts.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
