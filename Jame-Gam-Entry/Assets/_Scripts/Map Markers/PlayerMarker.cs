@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class PlayerMarker : BaseMarker
 {
-    private int _startX, _startY;
-    private int _destinationX, _destinationY;
-    private MapManager _manager;
-
-    [SerializeField] private float _moveTime = 1.75f;
     [SerializeField] private BoxCollider2D _collider;
+    [SerializeField] private float _moveTime = 1.75f;
+
+    private MapManager _manager;
+    private CameraShake _camShake;
+
+    private int _destinationX, _destinationY;
 
     private float _lastMove;
+
     private bool _canMove;
 
-    private bool _moveForward;
-    private bool _moveBackward;
-
-    public void Initialize(MapManager manager)
+    public void Initialize(MapManager manager, CameraShake camShake)
     {
         _manager = manager;
+        _camShake = camShake;
     }
 
     private void Update()
@@ -28,74 +28,25 @@ public class PlayerMarker : BaseMarker
 
         if (Time.time - _lastMove > _moveTime)
         {
-            /*
-            if (_moveForward)
-            {
-                MoveMarker(_destinationX, _destinationY);
-                Debug.Log("Forward");
-                _lastMove = Time.time;
-            }
-
-            else if (_moveBackward)
-            {
-                MoveMarker(_startX, _startY);
-                Debug.Log("Backward");
-                _lastMove = Time.time;
-            }
-            */
-
+            // move the player marker and update _lastMove
             MoveMarker(_destinationX, _destinationY);
             _lastMove = Time.time;
 
+            // player has reached destination tile, stop moving
             if (transform.position.x == _destinationX && transform.position.y == _destinationY)
             {
                 _canMove = false;
             }
         }
-
-        Debug.Log(CurrentTile);
     }
 
     public void SetDestination(Vector3 destination)
     {
-
-        _startX = Mathf.RoundToInt(transform.position.x);
-        _startY = Mathf.RoundToInt(transform.position.y);
-
         _destinationX = Mathf.RoundToInt(destination.x);
         _destinationY = Mathf.RoundToInt(destination.y);
 
         _canMove = true;
     }
-
-    // This receives the UnityEvents invoke
-    /*
-     public void OnBehaviorChange()
-    {
-        Debug.Log("Hello");
-        _canMove = true;
-
-        if (LeverManager.Instance.CheckForward())
-        {
-            Debug.Log("Check F");
-            _moveForward = true;
-            _moveBackward = false;
-
-            Debug.Log(_moveForward);
-        }
-        else if (LeverManager.Instance.CheckReverse())
-        {
-            Debug.Log("Check B");
-            _moveForward = false;
-            _moveBackward = true;
-        }
-        else if (LeverManager.Instance.CheckStop())
-        {
-            Debug.Log("Dumb bitch");
-            _canMove = false;
-        }
-    }
-    */
 
     private void MoveMarker(int targetX, int targetY)
     {
@@ -145,11 +96,22 @@ public class PlayerMarker : BaseMarker
     {
         if (CurrentTile.CompareTag("Goal Tile"))
         {
-            Debug.Log("On a Goal Tile!");
+            // un-comment and then add the string for the happy sfx
+            // AudioManager.Instance.PlaySFX();
+
+            // add scene transition to Credits
+            // put here
+
         }
         else if (CurrentTile.CompareTag("Hazard Tile"))
         {
-            Debug.Log("On a Hazard Tile!");
+            _canMove = false;
+
+            // screen shake
+            StartCoroutine(_camShake.ScreenShake(0.2f, 0.25f));
+
+            // reset
+            // put here
         }
     }
 
@@ -157,20 +119,7 @@ public class PlayerMarker : BaseMarker
     {
         if (collision.CompareTag("Hazard Tile"))
         {
-            //Debug.Log("Hazard detected");
-            //_canMove = false;
+            AudioManager.Instance.PlaySFX("Signal Ping");
         }
-        /*
-         else if (collision.CompareTag("Clear Tile"))
-        {
-            CurrentTile = collision.GetComponent<MapTile>();
-            Debug.Log(CurrentTile._isGoal);
-        }
-        else if (collision.CompareTag("Goal Tile"))
-        {
-            CurrentTile = collision.GetComponent<MapTile>();
-            Debug.Log(CurrentTile._isGoal);
-        }
-         */
     }
 }

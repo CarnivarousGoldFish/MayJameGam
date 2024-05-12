@@ -9,7 +9,7 @@ public class SceneManagement : MonoBehaviour
     public void StartGame(){
         Time.timeScale = 1;
         PauseCanvas.SetActive(false);
-        SceneManager.LoadScene("SFXTest");
+        SceneManager.LoadScene("GameScene");
     }
     
     public void QuitGame(){
