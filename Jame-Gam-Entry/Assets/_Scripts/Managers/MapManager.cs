@@ -11,7 +11,9 @@ public class MapManager : MonoBehaviour
 
     [SerializeField] private MapTile _clearTile;
     [SerializeField] private MapTile _hazardTile;
+    [SerializeField] private MapTile _goalTile;
 
+    [SerializeField] private List<Vector2> _hazardVectors = new List<Vector2>();
     private Dictionary<Vector2, MapTile> _tiles;
 
     [SerializeField] private Transform _camera;
@@ -36,13 +38,25 @@ public class MapManager : MonoBehaviour
         {
             for (int y  = 0; y < _mapHeight; y++)
             {
-                var randomTile = Random.Range(0, 50) == 1 ? _hazardTile : _clearTile;
-                var spawnedTile = Instantiate(randomTile, new Vector3(x, y), Quaternion.identity);
+                foreach (Vector2 position in _hazardVectors)
+                {
+                    if (position.x == y && position.y == x)
+                    {
+                        var hazardTile = Instantiate(_hazardTile, new Vector3(x, y), Quaternion.identity);
+                        HandleTileSpawn(hazardTile, x, y);
+                    }
+                }
 
-                spawnedTile.name = $"Tile {x} {y}";
-                spawnedTile.Initialize(this);
-
-                _tiles[new Vector2(x, y)] = spawnedTile;
+                if (x == 2 && y == 2)
+                {
+                    var goalTile = Instantiate(_goalTile, new Vector3(x, y), Quaternion.identity);
+                    HandleTileSpawn(goalTile, x, y);
+                } 
+                else
+                {
+                    var clearTile = Instantiate(_clearTile, new Vector3(x, y), Quaternion.identity);
+                    HandleTileSpawn(clearTile, x, y);
+                }
             }
         }
 
@@ -52,11 +66,27 @@ public class MapManager : MonoBehaviour
         _camera.transform.position = new Vector3((float)_mapWidth / 1.125f - 0.5f, (float)_mapHeight / 2.25f - 0.5f, -10f);
     }
 
+    private void HandleTileSpawn(MapTile tileType, int xPos, int yPos)
+    {
+        Debug.Log(tileType);
+
+        tileType.name = $"Tile {xPos} {yPos}";
+        tileType.Initialize(this);
+
+        _tiles[new Vector2(xPos, yPos)] = tileType;
+    }
+
     private MapTile SetPlayerSpawn()
     {
         return _tiles
             .Where(t => t.Key.x == Mathf.RoundToInt(_mapWidth / 2) && t.Key.y == _mapHeight - 1)
             .OrderBy(t => Random.value).First().Value;
+    }
+
+    public void SetPlayerTile()
+    {
+        MapTile newTile = _tiles.Where(t => t.Key.x == PlayerMark.transform.position.x && t.Key.y == PlayerMark.transform.position.y).First().Value;
+        PlayerMark.CurrentTile = newTile;
     }
 
     private void SpawnPlayerMarker()
@@ -68,5 +98,6 @@ public class MapManager : MonoBehaviour
 
         spawnPoint.SetMarker(PlayerMark);
         Debug.Log("Spawned at: " + spawnPoint.transform.position);
+        PlayerMark.Initialize(this);
     }
 }

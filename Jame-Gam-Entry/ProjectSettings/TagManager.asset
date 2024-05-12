@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Clear Tile
   - Hazard Tile
+  - Goal Tile
   layers:
   - Default
   - TransparentFX

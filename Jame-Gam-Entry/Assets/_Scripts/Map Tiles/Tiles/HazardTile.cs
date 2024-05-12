@@ -9,5 +9,6 @@ public class HazardTile : MapTile
         base.Initialize(manager);
 
         _isHazard = true;
+        _isGoal = false;
     }
 }
