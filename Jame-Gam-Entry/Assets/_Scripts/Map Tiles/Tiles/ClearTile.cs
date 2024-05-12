@@ -7,8 +7,5 @@ public class ClearTile : MapTile
     public override void Initialize(MapManager manager)
     {
         base.Initialize(manager);
-
-        _isHazard = false;
-        _isGoal = false;
     }
 }

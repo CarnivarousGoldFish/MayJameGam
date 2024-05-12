@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 1746325363350997377, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+      objectReference: {fileID: 21300000, guid: 592594f952f8d4640aa1a8e6cc34e790, type: 3}
     - target: {fileID: 1746325363350997377, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -26,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2600551504652689011, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1
+      value: 1.0666667
       objectReference: {fileID: 0}
     - target: {fileID: 2600551504652689011, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1
+      value: 1.0666667
       objectReference: {fileID: 0}
     - target: {fileID: 3319030905072446857, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}
       propertyPath: m_Name
@@ -115,6 +115,7 @@ MonoBehaviour:
   _highlight: {fileID: 7798231975874537418}
   _crossMarker: {fileID: 6784254247081522286, guid: 109a52c3dae4ab247ad08b6485a6c94e, type: 3}
   _isHazard: 0
+  _isGoal: 0
 --- !u!1 &7798231975874537418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9090500900672346695, guid: 839b56fa0dad0124cb02b46aff901e09, type: 3}

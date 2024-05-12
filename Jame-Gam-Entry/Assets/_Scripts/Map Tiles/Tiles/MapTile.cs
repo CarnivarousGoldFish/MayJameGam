@@ -9,14 +9,12 @@ public abstract class MapTile : MonoBehaviour
     [SerializeField] private GameObject _highlight;
     [SerializeField] private CrossMarker _crossMarker;
 
-    public BaseMarker CurrentMarker { get; private set; }
     private CrossMarker _crossInst;
-
     private MapManager _manager;
+
     private bool _onTile;
 
-    public bool _isHazard;
-    public bool _isGoal;
+    public BaseMarker CurrentMarker { get; private set; }
 
     public virtual void Initialize(MapManager manager)
     {
@@ -30,7 +28,7 @@ public abstract class MapTile : MonoBehaviour
         if (SceneManagement.isPaused) return;
         if (Input.GetMouseButtonDown(0))
         {
-
+            // if the tile has no marker spawned, update the player's current tile
             if (!CurrentMarker)
             {
                 _manager.PlayerMark.SetDestination(transform.position);
@@ -38,8 +36,10 @@ public abstract class MapTile : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(1))
         {
+            // if tile has a marker on it and it is a cross, destroy
              if (CurrentMarker && CurrentMarker is CrossMarker)
                 DestroyCrossMarker();
+            // else, spawn
             else if (!CurrentMarker)
                 SpawnCrossMarker();
         }
@@ -59,11 +59,6 @@ public abstract class MapTile : MonoBehaviour
         _onTile = false;
     }
 
-    private void SetPlayerDestination()
-    {
-
-    }
-
     private void SpawnCrossMarker()
     {
         _crossInst = Instantiate(_crossMarker, transform.position, Quaternion.identity);
@@ -72,14 +67,11 @@ public abstract class MapTile : MonoBehaviour
 
     private void DestroyCrossMarker()
     {
-        Debug.Log("A cross is here! Deleting it!");
         Destroy(_crossInst.gameObject);
     }
 
     public void SetMarker(BaseMarker marker)
     {
-        //if (marker.CurrentTile != null) marker.CurrentTile.CurrentMarker = null;
-
         marker.SetMarkerPosition(transform.position);
         CurrentMarker = marker;
         marker.CurrentTile = this;
