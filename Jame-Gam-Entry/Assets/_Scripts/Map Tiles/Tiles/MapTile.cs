@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class MapTile : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public abstract class MapTile : MonoBehaviour
     private void Update()
     {
         if (!_onTile) return;
-
+        if (SceneManagement.isPaused) return;
         if (Input.GetMouseButtonDown(0))
         {
             // if the tile has no marker spawned, update the player's current tile
@@ -46,12 +47,14 @@ public abstract class MapTile : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (SceneManagement.isPaused) return;
         _highlight.SetActive(true);
         _onTile = true;
     }
 
     private void OnMouseExit()
     {
+        if (SceneManagement.isPaused) return;
         _highlight.SetActive(false);
         _onTile = false;
     }

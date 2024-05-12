@@ -32,7 +32,7 @@ public class MapManager : MonoBehaviour
         TurnOnOverlay(false);
     }
 
-    private void GenerateMapGrid()
+    public void GenerateMapGrid()
     {
         _tiles = new Dictionary<Vector2, MapTile>();
 
