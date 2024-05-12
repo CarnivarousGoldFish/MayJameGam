@@ -420,7 +420,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: dd0dfcea75cf776489c4a629f2d0f188, type: 3}
   musicSource: {fileID: 4913041421927175478}
   sfxSource: {fileID: 9174203953235185372}
-  volumeScale: 0
+  volumeScale: 1
 --- !u!1 &1016664738234691929
 GameObject:
   m_ObjectHideFlags: 0
