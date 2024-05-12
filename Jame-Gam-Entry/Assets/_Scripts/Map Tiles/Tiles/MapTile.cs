@@ -16,6 +16,7 @@ public abstract class MapTile : MonoBehaviour
     private bool _onTile;
 
     public bool _isHazard;
+    public bool _isGoal;
 
     public virtual void Initialize(MapManager manager)
     {
