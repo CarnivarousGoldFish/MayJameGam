@@ -20,8 +20,7 @@ public class SceneManagement : MonoBehaviour
         }
     }
     public void TogglePause(){
-        Debug.Log("escape was pressed");
-        //Time.timeScale = 0;
+        Time.timeScale = PauseCanvas.activeSelf ? 1 : 0;
         PauseCanvas.SetActive(!PauseCanvas.activeSelf);
     }
 }
