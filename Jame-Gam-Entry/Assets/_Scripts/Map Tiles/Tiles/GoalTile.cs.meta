@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Jame-Gam-Entry/Assets/_Scripts/Map Tiles/Tiles/GoalTile.cs.meta
 guid: 12af302c97068dc4d905b75f4fa1afff
+========
+guid: 637cc390d94ac094f961a6beefbb11ae
+>>>>>>>> d21a01450606000f012b80fd49710cf63360b906:Jame-Gam-Entry/Assets/_Scripts/CameraShake.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
