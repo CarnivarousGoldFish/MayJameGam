@@ -7,7 +7,6 @@ public class SceneManagement : MonoBehaviour
 {
     public GameObject PauseCanvas;
     public void StartGame(){
-        Time.timeScale = 1;
         SceneManager.LoadScene("GameScene");
     }
     
